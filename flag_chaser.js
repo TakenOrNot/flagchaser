@@ -35,13 +35,16 @@
             // var carriername = $( "#blueflag-name" ).text();
             var carriername = $( "#blueflag-name" ).justtext();
             console.log("flag blue " + carriername);
-            
+            //$( "#scorecontainer:contains('carriername')" ).parent().parent().parent().data('player-id'); 
+            //$( "#scorecontainer:contains('carriername')" ).closest('.item').data('player-id');
+            Network.sendChat("/Spectate " + carriername);
         } else if ( team === 2 ) {
             
             // var carriername = $( "#redflag-name" ).text();
             //var carrierid = 
             var carriername = $( "#redflag-name" ).justtext();
             console.log("flag red " + carriername);
+            Network.sendChat("/Spectate " + carriername);
             
         }
 
