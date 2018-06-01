@@ -22,11 +22,19 @@
     function onFlagEvent ( event, team, verb ) {
 
         if ( team === 1 ) {
-            console.log("flag blue");
+            
+            var carriername = $( "#blueflag-name" ).text();
+            console.log("flag blue" + carriername);
+            
         } else if ( team === 2 ) {
-            console.log("flag red");
+            
+            var carriername = $( "#redflag-name" ).text();
+            //var carrierid = 
+            console.log("flag red " + carriername);
+            
         }
 
+        
       }
     
     /* REGISTER */
