@@ -31,7 +31,7 @@
             
             // var carriername = $( "#redflag-name" ).text();
             //var carrierid = 
-            var carriername = $($( "#redflag-name" ).contents()[0].text();
+            var carriername = $( "#redflag-name" ).contents()[0].text();
             console.log("flag red " + carriername);
             
         }
