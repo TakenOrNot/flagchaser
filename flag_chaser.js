@@ -76,9 +76,10 @@
                             {
                                 // the carrier died
                                 console.log(carriername + " died");
+                                Network.sendCommand("spectate", game.myID + "");
                             }
                     });
-                    // Network.sendCommand("spectate", game.myID + "");
+                    
                 }
                 else {
                     // probably returned
@@ -102,6 +103,7 @@
                             {
                                 // the carrier died
                                 console.log(carriername + " died");
+                                Network.sendCommand("spectate", game.myID + "");
                             }
                     });
                 }
