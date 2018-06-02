@@ -47,6 +47,33 @@
             flagchase(2);
         });
     });
+    
+    $("body").append("<div id='btnchaseblueflag' onClick='flagchase(1);' style='display: block; position: absolute;
+    left: 50%;
+    margin: -75px;
+    bottom: 300px;
+    width: 150px;
+    height: 25px;
+    padding: 5px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 5px;
+    text-align: center;
+    color: #b4b4b4;
+    font-size: 15px;
+    cursor: pointer;'>Chase blue flag</div><div id='btnchaseredflag' onClick='flagchase(2);' style='display: block; position: absolute;
+    left: 50%;
+    margin: -75px;
+    bottom: 250px;
+    width: 150px;
+    height: 25px;
+    padding: 5px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 5px;
+    text-align: center;
+    color: #b4b4b4;
+    font-size: 15px;
+    cursor: pointer;'>Chase red flag</div>");
+    
     function onKeydown ( event ) {
 
         if ( event.originalEvent.key === 'o' ) { //TODO: This should be customizable
