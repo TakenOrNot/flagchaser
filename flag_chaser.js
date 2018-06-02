@@ -71,7 +71,10 @@
                     // nobody is carrying it, flag probably (?) in its base
                     // BUGGY: free camera to blue base
                     console.log("back to blue base");
-                    $("#btnFreeSpectator").click().delay( 2000 ).Graphics.setCamera(-9385, -1560);
+                    $("#btnFreeSpectator").click();
+                    window.setTimeout(function () {
+                      Graphics.setCamera(-9385, -1560);
+                    },2000);
                     
                 }
         }
@@ -93,7 +96,10 @@
                     // nobody is carrying it, flag probably (?) in its base
                     // BUGGY: free camera to red base
                     console.log("back to red base");
-                    $("#btnFreeSpectator").click().delay( 2000 ).Graphics.setCamera(8260, -1055);
+                    $("#btnFreeSpectator").click().delay( 2000 );
+                    window.setTimeout(function () {
+                      Graphics.setCamera(8260, -1055);
+                    },2000);
                     
                 }
         }
@@ -171,8 +177,10 @@
                     // TODO: check flagevent to know if returned/captured
                     // BUGGY: free camera to blue base
                     console.log("back to blue base");
-                    $("#btnFreeSpectator").click().delay( 2000 ).Graphics.setCamera(-9385, -1560);;
-                    
+                    $("#btnFreeSpectator").click();
+                    window.setTimeout(function () {
+                      Graphics.setCamera(-9385, -1560);
+                    },2000);
                 }
             } else if ( team === 2 && chaseflag === 2) {
 
@@ -190,8 +198,10 @@
                     // TODO: check flagevent to know if returned/captured
                     // BUGGY: free camera to red base
                     console.log("back to red base");
-                    $("#btnFreeSpectator").click().delay( 2000 ).Graphics.setCamera(8260, -1055);
-                    
+                    $("#btnFreeSpectator").click();
+                    window.setTimeout(function () {
+                      Graphics.setCamera(8260, -1055);
+                    },2000);
                 }    
             }
         } 
