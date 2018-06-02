@@ -69,10 +69,10 @@
                 }
                 else {
                     // nobody is carrying it, flag probably (?) in its base
-                    // TODO: free camera to blue base
+                    // BUGGY: free camera to blue base
                     console.log("back to blue base");
-                    $("#btnFreeSpectator").click();
-                    Graphics.setCamera(-9385, -1560);
+                    $("#btnFreeSpectator").click().delay( 2000 ).Graphics.setCamera(-9385, -1560);
+                    
                 }
         }
         else if ( chaseflag === 2) {
@@ -91,22 +91,19 @@
                 }
                 else {
                     // nobody is carrying it, flag probably (?) in its base
-                    // TODO: free camera to red base
+                    // BUGGY: free camera to red base
                     console.log("back to red base");
-                    $("#btnFreeSpectator").click();
-                    Graphics.setCamera(8260, -1055);
+                    $("#btnFreeSpectator").click().delay( 2000 ).Graphics.setCamera(8260, -1055);
+                    
                 }
         }
         
     }
     
-    
-    /* EVENTS */
+    /* GUI */
     
     $("body").append("<div id='btnchaseblueflag' style='display: block; position: absolute;left: 50%;margin: -75px;bottom: 300px;width: 150px;height: 25px;padding: 5px;background: rgba(0,0,0,0.5);border-radius: 5px;text-align: center;color: #b4b4b4;font-size: 15px;cursor: pointer;'>Chase blue flag</div><div id='btnchaseredflag' style='display: block; position: absolute;left: 50%;margin: -75px;bottom: 250px;width: 150px;height: 25px;padding: 5px;background: rgba(0,0,0,0.5);border-radius: 5px;text-align: center;color: #b4b4b4;font-size: 15px;cursor: pointer;'>Chase red flag</div>");
     
-    $("#btnchaseblueflag").click(function(){flagchase(1)});
-    $("#btnchaseredflag").click(function(){flagchase(2)});
     // $(document).ready(function() {
         // $(document).on("click",".blueflag",function(){
             // console.log("chase blue flag @GUI");
@@ -120,6 +117,12 @@
         // });
     //});
     
+    /* EVENTS */
+    
+    $("#btnchaseblueflag").click(function(){flagchase(1)});
+    $("#btnchaseredflag").click(function(){flagchase(2)});
+    
+    
     function onKeydown ( event ) {
 
         if ( event.originalEvent.key === 'o' ) { //TODO: This should be customizable
@@ -128,7 +131,7 @@
           // console.log("chase blue flag");  
           // chaseflag = 1;
             flagchase(1);
-          // TODO: check if the flag is already out, if yes spectate carrier   
+          
         }
         
         if ( event.originalEvent.key === 'p' ) { //TODO: This should be customizable
@@ -137,7 +140,7 @@
           // console.log("chase red flag");  
           //chaseflag = 2;
             flagchase(2);
-          // TODO: check if the flag is already out, if yes spectate carrier  
+          
         }
 
     }
@@ -165,10 +168,11 @@
                 }
                 else {
                     // probably returned
-                    // TODO: free camera to blue base
+                    // TODO: check flagevent to know if returned/captured
+                    // BUGGY: free camera to blue base
                     console.log("back to blue base");
-                    $("#btnFreeSpectator").click();
-                    Graphics.setCamera(-9385, -1560);
+                    $("#btnFreeSpectator").click().delay( 2000 ).Graphics.setCamera(-9385, -1560);;
+                    
                 }
             } else if ( team === 2 && chaseflag === 2) {
 
@@ -183,10 +187,11 @@
                 }
                 else {
                     // probably returned
-                    // TODO: free camera to red base
+                    // TODO: check flagevent to know if returned/captured
+                    // BUGGY: free camera to red base
                     console.log("back to red base");
-                    $("#btnFreeSpectator").click();
-                    Graphics.setCamera(8260, -1055);
+                    $("#btnFreeSpectator").click().delay( 2000 ).Graphics.setCamera(8260, -1055);
+                    
                 }    
             }
         } 
