@@ -35,6 +35,14 @@
     $("specblue").click(function(){console.log("blueclicked");});
     $("specred").click(function(){console.log("redclicked");});
     
+    function flagchase(team){
+        if ( team === 1 ) {
+            console.log("chase blue flag");
+        }
+        if ( team === 2 ) {
+            console.log("chase red flag");
+        }
+    }
     function onFlagEvent ( event, team, verb ) {
 
         if ( team === 1 ) {
