@@ -30,8 +30,28 @@
     window.chaseflag = 0;
     
     function flagchase( flagchaseteam ){
+        
         chaseflag = flagchaseteam;
         console.log("chase flag " + flagchaseteam);
+        
+    }
+    
+    function speccarrier( carriername ){
+       
+        carrierobj = Players.getByName(carriername); 
+        carrierid = carrierobj['id']; 
+        Network.sendCommand("spectate", carrierid + "");
+        // if the carrier dies, go in free camera mode
+        // function carrierKilled(data, dead, killer){
+        SWAM.on("playerKilled", function(data, dead, killer){
+            if (dead.id == carrierid){
+                // the carrier died
+                console.log(carriername + " died");
+                //Network.sendCommand("spectate", game.myID + "");
+                $("#btnFreeSpectator").click();
+             }
+        });
+        
     }
     
     /* EVENTS */
@@ -89,21 +109,11 @@
                 console.log("flag blue " + carriername);
                 //$( "#scorecontainer:contains('carriername')" ).parent().parent().parent().data('player-id'); 
                 //$( "#scorecontainer:contains('carriername')" ).closest('.item').data('player-id');
+                
+                
                 if (carriername.length > 0){
-                    carrierobj = Players.getByName(carriername); 
-                    carrierid = carrierobj['id']; 
-                    Network.sendCommand("spectate", carrierid + "");
-                    // TODO: if the carrier dies, go in free camera mode
-                    // function carrierKilled(data, dead, killer){
-                    SWAM.on("playerKilled", function(data, dead, killer){
-                        if (dead.id == carrierid)
-                            {
-                                // the carrier died
-                                console.log(carriername + " died");
-                                //Network.sendCommand("spectate", game.myID + "");
-                                $("#btnFreeSpectator").click();
-                            }
-                    });
+                    
+                    speccarrier(carriername);
                     
                 }
                 else {
@@ -117,21 +127,9 @@
                 var carriername = $( "#redflag-name" ).justtext();
                 console.log("flag red " + carriername);
                 if (carriername.length > 0){
-                    //Network.sendCommand("/Spectate " + carriername);
-                    carrierobj = Players.getByName(carriername); 
-                    carrierid = carrierobj['id']; 
-                    Network.sendCommand("spectate", carrierid + "");
-                    // TODO: if the carrier dies, go in free camera mode
-                    // function carrierKilled(data, dead, killer){
-                    SWAM.on("playerKilled", function(data, dead, killer){
-                        if (dead.id == carrierid)
-                            {
-                                // the carrier died
-                                console.log(carriername + " died");
-                                //Network.sendCommand("spectate", game.myID + "");
-                                $("#btnFreeSpectator").click();
-                            }
-                    });
+                    
+                    speccarrier(carriername);
+                    
                 }
                 else {
                     // probably returned
