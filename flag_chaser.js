@@ -35,20 +35,23 @@
     }
     
     /* EVENTS */
-    $(document).ready(function() {
-        $(document).on("click",".blueflag",function(){
-            console.log("chase blue flag @GUI");
-            // chaseflag = 1;
-            flagchase(1);
-        });
-        $(document).on("click",".redflag",function(){
-            console.log("chase red flag @GUI");
-            // chaseflag = 2;
-            flagchase(2);
-        });
-    });
     
-    $("body").append("<div id='btnchaseblueflag' onClick='flagchase(1);' style='display: block; position: absolute;left: 50%;margin: -75px;bottom: 300px;width: 150px;height: 25px;padding: 5px;background: rgba(0,0,0,0.5);border-radius: 5px;text-align: center;color: #b4b4b4;font-size: 15px;cursor: pointer;'>Chase blue flag</div><div id='btnchaseredflag' onClick='flagchase(2);' style='display: block; position: absolute;left: 50%;margin: -75px;bottom: 250px;width: 150px;height: 25px;padding: 5px;background: rgba(0,0,0,0.5);border-radius: 5px;text-align: center;color: #b4b4b4;font-size: 15px;cursor: pointer;'>Chase red flag</div>");
+    $("body").append("<div id='btnchaseblueflag' style='display: block; position: absolute;left: 50%;margin: -75px;bottom: 300px;width: 150px;height: 25px;padding: 5px;background: rgba(0,0,0,0.5);border-radius: 5px;text-align: center;color: #b4b4b4;font-size: 15px;cursor: pointer;'>Chase blue flag</div><div id='btnchaseredflag' style='display: block; position: absolute;left: 50%;margin: -75px;bottom: 250px;width: 150px;height: 25px;padding: 5px;background: rgba(0,0,0,0.5);border-radius: 5px;text-align: center;color: #b4b4b4;font-size: 15px;cursor: pointer;'>Chase red flag</div>");
+    
+    $("#btnchaseblueflag").click(function(){flagchase(1)});
+    $("#btnchaseredflag").click(function(){flagchase(2)});
+    // $(document).ready(function() {
+        // $(document).on("click",".blueflag",function(){
+            // console.log("chase blue flag @GUI");
+            // chaseflag = 1;
+            // flagchase(1);
+        // });
+        // $(document).on("click",".redflag",function(){
+            // console.log("chase red flag @GUI");
+            // chaseflag = 2;
+            // flagchase(2);
+        // });
+    //});
     
     function onKeydown ( event ) {
 
