@@ -71,13 +71,13 @@
                     Network.sendCommand("spectate", carrierid + "");
                     // TODO: if the carrier dies, go in free camera mode
                     // function carrierKilled(data, dead, killer){
-                    SWAM.on("playerKilled", function(data, dead, killer)){
+                    SWAM.on("playerKilled", function(data, dead, killer){
                         if (dead.id == carrierid)
                             {
                                 // the carrier died
                                 console.log(carriername + " died");
                             }
-                    };
+                    });
                     // Network.sendCommand("spectate", game.myID + "");
                 }
                 else {
@@ -97,13 +97,13 @@
                     Network.sendCommand("spectate", carrierid + "");
                     // TODO: if the carrier dies, go in free camera mode
                     // function carrierKilled(data, dead, killer){
-                    SWAM.on("playerKilled", function(data, dead, killer)){
+                    SWAM.on("playerKilled", function(data, dead, killer){
                         if (dead.id == carrierid)
                             {
                                 // the carrier died
                                 console.log(carriername + " died");
                             }
-                    };
+                    });
                 }
                 else {
                     // probably returned
