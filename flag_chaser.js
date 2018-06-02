@@ -26,9 +26,11 @@
                 .text();
 
     };
+    // UI
+    $("body").append("<div id='specflags' style='width: 200px; height: 100px; position: absolute; top: 40px; left: 400px;'><div id='specblue'>specblueflag</div><div id='specred'>specredflag</div></div>");
     /* EVENTS */
-    $("#gamespecific > .blueflag").click(function(){console.log("blueclicked");});
-    $("#gamespecific > .redflag").click(function(){console.log("redclicked");});
+    //$("#gamespecific > .blueflag").click(function(){console.log("blueclicked");});
+    
     function onFlagEvent ( event, team, verb ) {
 
         if ( team === 1 ) {
