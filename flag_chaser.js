@@ -70,11 +70,12 @@
                 else {
                     // nobody is carrying it, flag probably (?) in its base
                     // TODO: free camera to blue base
+                    console.log("back to blue base");
                     $("#btnFreeSpectator").click();
                     Graphics.setCamera(-9385, -1560);
                 }
         }
-        if ( chaseflag === 2) {
+        else if ( chaseflag === 2) {
 
                 // var carriername = $( "#blueflag-name" ).text();
                 var carriername = $( "#redflag-name" ).justtext();
@@ -91,6 +92,7 @@
                 else {
                     // nobody is carrying it, flag probably (?) in its base
                     // TODO: free camera to red base
+                    console.log("back to red base");
                     $("#btnFreeSpectator").click();
                     Graphics.setCamera(8260, -1055);
                 }
@@ -164,6 +166,7 @@
                 else {
                     // probably returned
                     // TODO: free camera to blue base
+                    console.log("back to blue base");
                     $("#btnFreeSpectator").click();
                     Graphics.setCamera(-9385, -1560);
                 }
@@ -181,6 +184,7 @@
                 else {
                     // probably returned
                     // TODO: free camera to red base
+                    console.log("back to red base");
                     $("#btnFreeSpectator").click();
                     Graphics.setCamera(8260, -1055);
                 }    
