@@ -12,7 +12,7 @@
     function initEvents () {
         SWAM.on ( 'keydown', onKeydown );
         SWAM.on ( 'CTF_FlagEvent', onFlagEvent );
-        // SWAM.on( 'playerKilled' , carrierKilled )
+        // SWAM.on( 'playerKilled', carrierKilled )
     }
 
     SWAM.on ( 'gameLoaded', init );
@@ -71,7 +71,7 @@
                     Network.sendCommand("spectate", carrierid + "");
                     // TODO: if the carrier dies, go in free camera mode
                     // function carrierKilled(data, dead, killer){
-                    SWAM.on("playerKilled", function(data, dead, killer){
+                    SWAM.on("playerKilled", function(data, dead, killer)){
                         if (dead.id == carrierid)
                             {
                                 // the carrier died
@@ -97,7 +97,7 @@
                     Network.sendCommand("spectate", carrierid + "");
                     // TODO: if the carrier dies, go in free camera mode
                     // function carrierKilled(data, dead, killer){
-                    SWAM.on("playerKilled", function(data, dead, killer){
+                    SWAM.on("playerKilled", function(data, dead, killer)){
                         if (dead.id == carrierid)
                             {
                                 // the carrier died
