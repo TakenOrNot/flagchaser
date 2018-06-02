@@ -38,7 +38,9 @@
             //$( "#scorecontainer:contains('carriername')" ).parent().parent().parent().data('player-id'); 
             //$( "#scorecontainer:contains('carriername')" ).closest('.item').data('player-id');
             if (carriername.length > 0){
-                Network.sendChat("/Spectate " + carriername);
+                carrierobj = Players.getByName(carriername); 
+                carrierid = carrierobj['id']; 
+                Network.sendCommand("spectate", carrierid + "");
             }
         } else if ( team === 2 ) {
             
@@ -47,7 +49,10 @@
             var carriername = $( "#redflag-name" ).justtext();
             console.log("flag red " + carriername);
             if (carriername.length > 0){
-                Network.sendChat("/Spectate " + carriername);
+                //Network.sendCommand("/Spectate " + carriername);
+                carrierobj = Players.getByName(carriername); 
+                carrierid = carrierobj['id']; 
+                Network.sendCommand("spectate", carrierid + "");
             }
             
         }
