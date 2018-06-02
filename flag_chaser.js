@@ -27,7 +27,8 @@
 
     };
     /* EVENTS */
-      
+    $("#gamespecific > .blueflag").click(function(){console.log("blueclicked");});
+    $("#gamespecific > .redflag").click(function(){console.log("redclicked");});
     function onFlagEvent ( event, team, verb ) {
 
         if ( team === 1 ) {
