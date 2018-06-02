@@ -27,7 +27,7 @@
 
     };
     
-    var chaseflag = 0;
+    var window.chaseflag = 0;
     
     /* EVENTS */
     
@@ -57,7 +57,7 @@
         
         if( $('#btnFreeSpectator').css('display') == 'block' ) {
             
-            console.log("chaseflag =" + chaseflag);
+            console.log("chaseflag = " + chaseflag);
             if ( team === 1 && chaseflag === 1) {
 
                 // var carriername = $( "#blueflag-name" ).text();
