@@ -176,7 +176,7 @@
                     // probably returned
                     // TODO: check flagevent to know if returned/captured
                     // BUGGY: free camera to blue base
-                    console.log("blue flag " + event + ", back to blue base");
+                    console.log("blue flag " + verb + ", back to blue base");
                     $("#btnFreeSpectator").click();
                     window.setTimeout(function () {
                       Graphics.setCamera(-9385, -1560);
@@ -197,7 +197,7 @@
                     // probably returned
                     // TODO: check flagevent to know if returned/captured
                     // BUGGY: free camera to red base
-                    console.log("red flag " + event + ", back to red base");
+                    console.log("red flag " + verb + ", back to red base");
                     $("#btnFreeSpectator").click();
                     window.setTimeout(function () {
                       Graphics.setCamera(8260, -1055);
