@@ -29,15 +29,22 @@
     
     window.chaseflag = 0;
     
+    function flagchase( flagchaseteam ){
+        chaseflag = flagchaseteam;
+        console.log("chase flag " + flagchaseteam);
+    }
+    
     /* EVENTS */
     
     $(document).on("click",".blueflag",function(){
         console.log("chase blue flag @GUI");
-        chaseflag = 1;
+        // chaseflag = 1;
+        flagchase(1);
     });
     $(document).on("click",".redflag",function(){
         console.log("chase red flag @GUI");
-        chaseflag = 2;
+        // chaseflag = 2;
+        flagchase(2);
     });
     
     function onKeydown ( event ) {
@@ -45,16 +52,18 @@
         if ( event.originalEvent.key === 'o' ) { //TODO: This should be customizable
 
           event.stopImmediatePropagation ();
-          console.log("chase blue flag");  
-          chaseflag = 1;
+          // console.log("chase blue flag");  
+          // chaseflag = 1;
+            flagchase(1);
           // TODO: check if the flag is already out, if yes spectate carrier   
         }
         
         if ( event.originalEvent.key === 'p' ) { //TODO: This should be customizable
 
           event.stopImmediatePropagation ();
-          console.log("chase red flag");  
-          chaseflag = 2;
+          // console.log("chase red flag");  
+          //chaseflag = 2;
+            flagchase(2);
           // TODO: check if the flag is already out, if yes spectate carrier  
         }
 
