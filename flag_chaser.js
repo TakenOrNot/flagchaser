@@ -29,13 +29,6 @@
     
     window.chaseflag = 0;
     
-    function flagchase( flagchaseteam ){
-        
-        chaseflag = flagchaseteam;
-        console.log("chase flag " + flagchaseteam);
-        
-    }
-    
     function speccarrier( carriername ){
        
         carrierobj = Players.getByName(carriername); 
@@ -53,6 +46,54 @@
         });
         
     }
+    
+    function flagchase( flagchaseteam ){
+        
+        chaseflag = flagchaseteam;
+        console.log("chase flag " + flagchaseteam);
+        
+        // if somebody is already carrying flag, spectate him
+        if ( chaseflag === 1) {
+
+                // var carriername = $( "#blueflag-name" ).text();
+                var carriername = $( "#blueflag-name" ).justtext();
+                console.log("flag blue " + carriername);
+                //$( "#scorecontainer:contains('carriername')" ).parent().parent().parent().data('player-id'); 
+                //$( "#scorecontainer:contains('carriername')" ).closest('.item').data('player-id');
+                
+                
+                if (carriername.length > 0){
+                    
+                    speccarrier(carriername);
+                    
+                }
+                else {
+                    // nobody is carrying it, flag probably (?) in its base
+                    // TODO: free camera to blue base
+                }
+        }
+        if ( chaseflag === 2) {
+
+                // var carriername = $( "#blueflag-name" ).text();
+                var carriername = $( "#redflag-name" ).justtext();
+                console.log("flag red " + carriername);
+                //$( "#scorecontainer:contains('carriername')" ).parent().parent().parent().data('player-id'); 
+                //$( "#scorecontainer:contains('carriername')" ).closest('.item').data('player-id');
+                
+                
+                if (carriername.length > 0){
+                    
+                    speccarrier(carriername);
+                    
+                }
+                else {
+                    // nobody is carrying it, flag probably (?) in its base
+                    // TODO: free camera to red base
+                }
+        }
+        
+    }
+    
     
     /* EVENTS */
     
