@@ -70,6 +70,8 @@
                 else {
                     // nobody is carrying it, flag probably (?) in its base
                     // TODO: free camera to blue base
+                    $("#btnFreeSpectator").click();
+                    Graphics.setCamera(-9385, -1560);
                 }
         }
         if ( chaseflag === 2) {
@@ -89,6 +91,8 @@
                 else {
                     // nobody is carrying it, flag probably (?) in its base
                     // TODO: free camera to red base
+                    $("#btnFreeSpectator").click();
+                    Graphics.setCamera(8260, -1055);
                 }
         }
         
@@ -160,6 +164,8 @@
                 else {
                     // probably returned
                     // TODO: free camera to blue base
+                    $("#btnFreeSpectator").click();
+                    Graphics.setCamera(-9385, -1560);
                 }
             } else if ( team === 2 && chaseflag === 2) {
 
@@ -175,6 +181,8 @@
                 else {
                     // probably returned
                     // TODO: free camera to red base
+                    $("#btnFreeSpectator").click();
+                    Graphics.setCamera(8260, -1055);
                 }    
             }
         } 
