@@ -35,18 +35,18 @@
     }
     
     /* EVENTS */
-    
-    $(document).on("click",".blueflag",function(){
-        console.log("chase blue flag @GUI");
-        // chaseflag = 1;
-        flagchase(1);
+    $(document).ready(function() {
+        $(document).on("click",".blueflag",function(){
+            console.log("chase blue flag @GUI");
+            // chaseflag = 1;
+            flagchase(1);
+        });
+        $(document).on("click",".redflag",function(){
+            console.log("chase red flag @GUI");
+            // chaseflag = 2;
+            flagchase(2);
+        });
     });
-    $(document).on("click",".redflag",function(){
-        console.log("chase red flag @GUI");
-        // chaseflag = 2;
-        flagchase(2);
-    });
-    
     function onKeydown ( event ) {
 
         if ( event.originalEvent.key === 'o' ) { //TODO: This should be customizable
