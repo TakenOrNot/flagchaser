@@ -27,7 +27,7 @@
 
     };
     
-    var window.chaseflag = 0;
+    window.chaseflag = 0;
     
     /* EVENTS */
     
@@ -37,7 +37,7 @@
 
           event.stopImmediatePropagation ();
           console.log("chase blue flag");  
-          var chaseflag = 1;
+          chaseflag = 1;
 
         }
         
@@ -45,7 +45,7 @@
 
           event.stopImmediatePropagation ();
           console.log("chase red flag");  
-          var chaseflag = 2;
+          chaseflag = 2;
 
         }
 
