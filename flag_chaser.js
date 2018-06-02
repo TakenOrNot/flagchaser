@@ -162,13 +162,13 @@
 
                 // var carriername = $( "#blueflag-name" ).text();
                 var carriername = $( "#blueflag-name" ).justtext();
-                console.log("flag blue " + carriername);
+                // console.log("flag blue " + carriername);
                 //$( "#scorecontainer:contains('carriername')" ).parent().parent().parent().data('player-id'); 
                 //$( "#scorecontainer:contains('carriername')" ).closest('.item').data('player-id');
                 
                 
                 if (carriername.length > 0){
-                    
+                    console.log("blue flag taken by " + carriername);
                     speccarrier(carriername);
                     
                 }
@@ -176,7 +176,7 @@
                     // probably returned
                     // TODO: check flagevent to know if returned/captured
                     // BUGGY: free camera to blue base
-                    console.log("back to blue base");
+                    console.log("blue flag " + event + ", back to blue base");
                     $("#btnFreeSpectator").click();
                     window.setTimeout(function () {
                       Graphics.setCamera(-9385, -1560);
@@ -187,9 +187,9 @@
                 // var carriername = $( "#redflag-name" ).text();
                 //var carrierid = 
                 var carriername = $( "#redflag-name" ).justtext();
-                console.log("flag red " + carriername);
+                
                 if (carriername.length > 0){
-                    
+                    console.log("red flag taken by " + carriername);
                     speccarrier(carriername);
                     
                 }
@@ -197,7 +197,7 @@
                     // probably returned
                     // TODO: check flagevent to know if returned/captured
                     // BUGGY: free camera to red base
-                    console.log("back to red base");
+                    console.log("red flag " + event + ", back to red base");
                     $("#btnFreeSpectator").click();
                     window.setTimeout(function () {
                       Graphics.setCamera(8260, -1055);
