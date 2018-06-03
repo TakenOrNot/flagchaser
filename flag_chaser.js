@@ -161,36 +161,38 @@
     
     function onKeydown ( event ) {
         
-        if ( event.originalEvent.key === 'v' ) { //TODO: This should be customizable
+        if ( event.originalEvent.key === 'v' ) { //note: This is not reliable to know if player is actually spectating
 
-          event.stopImmediatePropagation ();
-          console.log("v key pressed, spectating player id " + game.spectatingID + ", show Flag Chaser GUI");  
-          $("#flagchasercontainer").css({display: "block"});
-          SWAM.on("playerRespawned", function(data){
-              respawnedid = data['id'];
-              if (respawnedid == Players.getMe().id){
-                  console.log("player respawned, hide Flag Chaser GUI");
-                  $("#flagchasercontainer").css({display: "none"});
-              }
-              
-          });
+            event.stopImmediatePropagation ();
+            
+            console.log("v key pressed, spectating player id " + game.spectatingID + ", show Flag Chaser GUI"); 
+            // game.spectatingID is not reliable, as it is null at first when spectating, until we spectate another player
+            $("#flagchasercontainer").css({display: "block"});
+            SWAM.on("playerRespawned", function(data){
+                respawnedid = data['id'];
+                if (respawnedid == Players.getMe().id){
+                    console.log("player respawned, hide Flag Chaser GUI");
+                    $("#flagchasercontainer").css({display: "none"});
+                }
+
+            });
           
         }
         
         if ( event.originalEvent.key === 'o' ) { //TODO: This should be customizable
 
-          event.stopImmediatePropagation ();
-          // console.log("chase blue flag");  
-          // chaseflag = 1;
+            event.stopImmediatePropagation ();
+            // console.log("chase blue flag");  
+            // chaseflag = 1;
             flagchase(1);
           
         }
         
         if ( event.originalEvent.key === 'p' ) { //TODO: This should be customizable
 
-          event.stopImmediatePropagation ();
-          // console.log("chase red flag");  
-          //chaseflag = 2;
+            event.stopImmediatePropagation ();
+            // console.log("chase red flag");  
+            //chaseflag = 2;
             flagchase(2);
           
         }
@@ -240,6 +242,11 @@
                     // BUGGY: free camera to red base
                     // note : free camera back to base seems to work on return, but not on capture (??)
                     console.log("red flag " + verb + ", back to red base");
+                    // forget about previously carrying player
+                    // as there is no flagdrop event, we do this here (better late than never)
+                    // TODO: check if theres a flagdrop event
+                    SWAM.off(playerKilled", function(data, dead, killer));
+                    
                     $("#btnFreeSpectator").click();
                     window.setTimeout(function () {
                         // Graphics.setCamera(8260, -1055);
