@@ -245,7 +245,7 @@
                     // forget about previously carrying player
                     // as there is no flagdrop event, we do this here (better late than never)
                     // TODO: check if theres a flagdrop event
-                    SWAM.off("playerKilled", carrierKilled());
+                    SWAM.off("playerKilled", carrierKilled);
                     
                     $("#btnFreeSpectator").click();
                     window.setTimeout(function () {
