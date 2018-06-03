@@ -57,13 +57,13 @@
 
                 // var carriername = $( "#blueflag-name" ).text();
                 var carriername = $( "#blueflag-name" ).justtext();
-                console.log("blue flag beeing carried by " + carriername);
+                
                 //$( "#scorecontainer:contains('carriername')" ).parent().parent().parent().data('player-id'); 
                 //$( "#scorecontainer:contains('carriername')" ).closest('.item').data('player-id');
                 
                 
                 if (carriername.length > 0){
-                    
+                    console.log("blue flag beeing carried by " + carriername);
                     speccarrier(carriername);
                     
                 }
@@ -74,10 +74,6 @@
                     $("#btnFreeSpectator").click();
                     window.setTimeout(function () {
                         Graphics.setCamera(-9385, -1560);
-                        Graphics.setCamera(-9385, -1560);
-                        Graphics.setCamera(-9385, -1560);
-                        Graphics.setCamera(-9385, -1560);
-                        Graphics.setCamera(-9385, -1560);
                     },2000);
                     
                 }
@@ -86,13 +82,13 @@
 
                 // var carriername = $( "#blueflag-name" ).text();
                 var carriername = $( "#redflag-name" ).justtext();
-                console.log("red flag beeing carried by " + carriername);
+                
                 //$( "#scorecontainer:contains('carriername')" ).parent().parent().parent().data('player-id'); 
                 //$( "#scorecontainer:contains('carriername')" ).closest('.item').data('player-id');
                 
                 
                 if (carriername.length > 0){
-                    
+                    console.log("red flag beeing carried by " + carriername);
                     speccarrier(carriername);
                     
                 }
@@ -102,10 +98,6 @@
                     console.log("back to red base");
                     $("#btnFreeSpectator").click().delay( 2000 );
                     window.setTimeout(function () {
-                        Graphics.setCamera(8260, -1055);
-                        Graphics.setCamera(8260, -1055);
-                        Graphics.setCamera(8260, -1055);
-                        Graphics.setCamera(8260, -1055);
                         Graphics.setCamera(8260, -1055);
                     },2000);
                     
@@ -184,13 +176,10 @@
                     // probably returned
                     // TODO: check flagevent to know if returned/captured
                     // BUGGY: free camera to blue base
+                    // note : free camera back to base seems to work on return, but not on capture (??)
                     console.log("blue flag " + verb + ", back to blue base");
                     $("#btnFreeSpectator").click();
                     window.setTimeout(function () {
-                        Graphics.setCamera(-9385, -1560);
-                        Graphics.setCamera(-9385, -1560);
-                        Graphics.setCamera(-9385, -1560);
-                        Graphics.setCamera(-9385, -1560);
                         Graphics.setCamera(-9385, -1560);
                     },2000);
                 }
@@ -209,13 +198,10 @@
                     // probably returned
                     // TODO: check flagevent to know if returned/captured
                     // BUGGY: free camera to red base
+                    // note : free camera back to base seems to work on return, but not on capture (??)
                     console.log("red flag " + verb + ", back to red base");
                     $("#btnFreeSpectator").click();
                     window.setTimeout(function () {
-                        Graphics.setCamera(8260, -1055);
-                        Graphics.setCamera(8260, -1055);
-                        Graphics.setCamera(8260, -1055);
-                        Graphics.setCamera(8260, -1055);
                         Graphics.setCamera(8260, -1055);
                     },2000);
                 }    
