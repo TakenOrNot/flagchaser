@@ -124,25 +124,25 @@
     //});
     
     /* EVENTS */
-    //SWAM.on("gameLoaded", function () {
-    console.log("game type " + game.gameType); 
-    
-    SWAM.on("serverMessageReceived", function (data) {
-        console.log("server msg data : " + data); 
+    SWAM.on("gameLoaded", function () {
+        console.log("game type " + game.gameType); 
     });
+    // SWAM.on("serverMessageReceived", function (data) {
+        // console.log("server msg data : " + data); 
+    // });
     
     // show GUI
     // SWAM.on("playerDestroyed", function(player){
         // console.log("player destroyed " + Players.getMe().id);
     // });
-    SWAM.on("playerKilled", function(data, dead, killer){
-            console.log(Players.getMe().id);
-            if (dead.id == game.myID && killer.id == 0){
+    // SWAM.on("playerKilled", function(data, dead, killer){
+            // console.log(Players.getMe().id);
+            // if (dead.id == game.myID && killer.id == 0){
                 
-                console.log("spectating");
-                $("#flagchasercontainer").css({display: "block"});
-             }
-    });
+                // console.log("spectating");
+                // $("#flagchasercontainer").css({display: "block"});
+             // }
+    // });
     
     // hide GUI
     
@@ -159,7 +159,16 @@
     
     
     function onKeydown ( event ) {
+        
+        if ( event.originalEvent.key === 'v' ) { //TODO: This should be customizable
 
+          event.stopImmediatePropagation ();
+          console.log("v key pressed, " + game.spectatingID);  
+          
+                
+          
+        }
+        
         if ( event.originalEvent.key === 'o' ) { //TODO: This should be customizable
 
           event.stopImmediatePropagation ();
