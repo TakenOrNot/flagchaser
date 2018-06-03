@@ -108,7 +108,7 @@
     
     /* GUI */
     
-    $("body").append("<div id='btnchaseblueflag' style='display: block; position: absolute;left: 50%;margin: -75px;bottom: 300px;width: 150px;height: 25px;padding: 5px;background: rgba(0,0,0,0.5);border-radius: 5px;text-align: center;color: #b4b4b4;font-size: 15px;cursor: pointer;'>Chase blue flag</div><div id='btnchaseredflag' style='display: block; position: absolute;left: 50%;margin: -75px;bottom: 250px;width: 150px;height: 25px;padding: 5px;background: rgba(0,0,0,0.5);border-radius: 5px;text-align: center;color: #b4b4b4;font-size: 15px;cursor: pointer;'>Chase red flag</div>");
+    $("body").append("<div id='btnchaseblueflag' style='display: block; position: absolute;left: 50%;margin: -75px;bottom: 300px;width: 150px;height: 25px;padding: 5px;background: rgba(46,110,236,0.5);border-radius: 5px;text-align: center;color: #b4b4b4;font-size: 15px;cursor: pointer;'>Chase Blue Flag</div><div id='btnchaseredflag' style='display: block; position: absolute;left: 50%;margin: -75px;bottom: 250px;width: 150px;height: 25px;padding: 5px;background: rgba(188,42,47,0.5);border-radius: 5px;text-align: center;color: #b4b4b4;font-size: 15px;cursor: pointer;'>Chase Red Flag</div>");
     
     // $(document).ready(function() {
         // $(document).on("click",".blueflag",function(){
@@ -125,8 +125,16 @@
     
     /* EVENTS */
     
-    $("#btnchaseblueflag").click(function(){flagchase(1)});
-    $("#btnchaseredflag").click(function(){flagchase(2)});
+    $("#btnchaseblueflag").click(function(){
+        flagchase(1);
+        $( this ).css({background: "rgba(46,110,236,0.9)"});
+        $("#btnchaseredflag").css({background: "rgba(188,42,47,0.5)"});
+    });
+    $("#btnchaseredflag").click(function(){
+        flagchase(2);
+        $( this ).css({background: "rgba(188,42,47,0.9)"});
+        $("#btnchaseblueflag").css({background: "rgba(46,110,236,0.5)"});
+    });
     
     
     function onKeydown ( event ) {
@@ -173,7 +181,7 @@
                     
                 }
                 else {
-                    // probably returned
+                    // returned/captured
                     // TODO: check flagevent to know if returned/captured
                     // BUGGY: free camera to blue base
                     // note : free camera back to base seems to work on return, but not on capture (??)
@@ -196,7 +204,7 @@
                     
                 }
                 else {
-                    // probably returned
+                    // returned/captured
                     // TODO: check flagevent to know if returned/captured
                     // BUGGY: free camera to red base
                     // note : free camera back to base seems to work on return, but not on capture (??)
