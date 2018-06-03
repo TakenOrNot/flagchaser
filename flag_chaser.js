@@ -245,7 +245,7 @@
                     // forget about previously carrying player
                     // as there is no flagdrop event, we do this here (better late than never)
                     // TODO: check if theres a flagdrop event
-                    SWAM.off(playerKilled", function(data, dead, killer));
+                    SWAM.off("playerKilled", function(data, dead, killer));
                     
                     $("#btnFreeSpectator").click();
                     window.setTimeout(function () {
