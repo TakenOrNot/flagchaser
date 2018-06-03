@@ -127,7 +127,7 @@
     
     // show GUI
     SWAM.on("playerKilled", function(data, dead, killer){
-            if (dead.id == game.myID && killer.id == 0){
+            if (dead.id == game.myID){
                 
                 console.log("spectating");
                 $("#flagchasercontainer").css({display: "block"});
