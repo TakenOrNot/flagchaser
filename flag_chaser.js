@@ -57,11 +57,15 @@
 
             var carriername = $( "#blueflag-name" ).justtext();
             var flagcolor = "blue";
+            var basecoordx = -9385;
+            var basecoordy = -1560;
         
         } else if ( chaseflag === 2) {
 
             var carriername = $( "#redflag-name" ).justtext();
             var flagcolor = "red";
+            var basecoordx = 8260;
+            var basecoordy = -1055;
             
         }
         //$( "#scorecontainer:contains('carriername')" ).parent().parent().parent().data('player-id'); 
@@ -74,7 +78,7 @@
         }
         else {
             // nobody is carrying it, flag probably (?) in its base
-            // BUGGY: free camera to blue base
+            // BUGGY: free camera to base
             console.log("camera go to " + flagcolor + " base");
             spectag = $( "#spectator-tag" ).justtext();
             myname = Players.getMe().name;
@@ -93,7 +97,7 @@
                     
             // $("#btnFreeSpectator").click();
             window.setTimeout(function () {
-                Graphics.setCamera(-9385, -1560);
+                Graphics.setCamera(basecoordx, basecoordy);
             },2000);
                     
         }
