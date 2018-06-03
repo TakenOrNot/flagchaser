@@ -124,9 +124,10 @@
     //});
     
     /* EVENTS */
-    SWAM.on("gameLoaded", function () {
-        console.log("game type " + game.gameType); 
-    });
+    
+    // SWAM.on("gameLoaded", function () {
+    //     console.log("game type " + game.gameType); 
+    // });
     // SWAM.on("serverMessageReceived", function (data) {
         // console.log("server msg data : " + data); 
     // });
@@ -163,9 +164,16 @@
         if ( event.originalEvent.key === 'v' ) { //TODO: This should be customizable
 
           event.stopImmediatePropagation ();
-          console.log("v key pressed, " + game.spectatingID);  
-          
-                
+          console.log("v key pressed, spectating player id " + game.spectatingID + ", show Flag Chaser GUI");  
+          $("#flagchasercontainer").css({display: "block"});
+          SWAM.on("playerRespawned", function(data){
+              respawnedid = data['id'];
+              if (respawnedid == Players.getMe().id){
+                  console.log("player respawned, hide Flag Chaser GUI");
+                  $("#flagchasercontainer").css({display: "none"});
+              }
+              
+          });
           
         }
         
