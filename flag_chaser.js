@@ -36,7 +36,7 @@
         Network.sendCommand("spectate", carrierid + "");
         // if the carrier dies, go in free camera mode
         // function carrierKilled(data, dead, killer){
-        SWAM.on("playerKilled", function carrierKilled(data, dead, killer){
+        SWAM.on("playerKilled", function (data, dead, killer){
             if (dead.id == carrierid){
                 // the carrier died
                 console.log(carriername + " died, killed by " + killer.name);
@@ -71,7 +71,19 @@
                     // nobody is carrying it, flag probably (?) in its base
                     // BUGGY: free camera to blue base
                     console.log("back to blue base");
-                    $("#btnFreeSpectator").click();
+                    spectag = $( "#spectator-tag" ).justtext();
+                    myname = Players.getMe().name;
+                    freecammode = "Spectating " + myname;
+                    if (spectag === freecammode){
+                        console.log("already in free camera mode");
+                    
+                    } else {
+                        console.log("switching to free camera mode");
+                        $("#btnFreeSpectator").click();
+                        
+                    }
+                    
+                    // $("#btnFreeSpectator").click();
                     window.setTimeout(function () {
                         Graphics.setCamera(-9385, -1560);
                     },2000);
@@ -96,7 +108,7 @@
                     // nobody is carrying it, flag probably (?) in its base
                     // BUGGY: free camera to red base
                     console.log("back to red base");
-                    $("#btnFreeSpectator").click();
+                    // $("#btnFreeSpectator").click();
                     window.setTimeout(function () {
                         Graphics.setCamera(8260, -1055);
                     },2000);
@@ -225,6 +237,7 @@
                     window.setTimeout(function () {
                         // Graphics.setCamera(-9385, -1560);
                         $("#btnchaseblueflag").click();
+                        
                     },2000);
                 }
             } else if ( team === 2 && chaseflag === 2) {
@@ -242,15 +255,16 @@
                     // BUGGY: free camera to red base
                     // note : free camera back to base seems to work on return, but not on capture (??)
                     console.log("red flag " + verb + ", back to red base");
-                    // forget about previously carrying player
+                    // TODO: forget about previously carrying player
                     // as there is no flagdrop event, we do this here (better late than never)
                     // TODO: check if theres a flagdrop event
-                    SWAM.off("playerKilled", carrierKilled);
+                    // SWAM.off("playerKilled", carrierKilled);
                     
                     $("#btnFreeSpectator").click();
                     window.setTimeout(function () {
                         // Graphics.setCamera(8260, -1055);
                         $("#btnchaseredflag").click();
+                        
                     },2000);
                 }    
             }
