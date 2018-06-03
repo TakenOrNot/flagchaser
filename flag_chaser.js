@@ -36,7 +36,7 @@
         Network.sendCommand("spectate", carrierid + "");
         // if the carrier dies, go in free camera mode
         // function carrierKilled(data, dead, killer){
-        SWAM.on("playerKilled", function(data, dead, killer){
+        SWAM.on("playerKilled", function carrierKilled(data, dead, killer){
             if (dead.id == carrierid){
                 // the carrier died
                 console.log(carriername + " died, killed by " + killer.name);
@@ -245,7 +245,7 @@
                     // forget about previously carrying player
                     // as there is no flagdrop event, we do this here (better late than never)
                     // TODO: check if theres a flagdrop event
-                    SWAM.off("playerKilled", function(data, dead, killer));
+                    SWAM.off("playerKilled", carrierKilled());
                     
                     $("#btnFreeSpectator").click();
                     window.setTimeout(function () {
