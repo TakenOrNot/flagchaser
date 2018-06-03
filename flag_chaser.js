@@ -180,7 +180,8 @@
                     console.log("blue flag " + verb + ", back to blue base");
                     $("#btnFreeSpectator").click();
                     window.setTimeout(function () {
-                        Graphics.setCamera(-9385, -1560);
+                        // Graphics.setCamera(-9385, -1560);
+                        $("#btnchaseblueflag").click();
                     },2000);
                 }
             } else if ( team === 2 && chaseflag === 2) {
@@ -202,7 +203,8 @@
                     console.log("red flag " + verb + ", back to red base");
                     $("#btnFreeSpectator").click();
                     window.setTimeout(function () {
-                        Graphics.setCamera(8260, -1055);
+                        // Graphics.setCamera(8260, -1055);
+                        $("#btnchaseredflag").click();
                     },2000);
                 }    
             }
