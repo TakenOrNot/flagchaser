@@ -39,7 +39,7 @@
         SWAM.on("playerKilled", function(data, dead, killer){
             if (dead.id == carrierid){
                 // the carrier died
-                console.log(carriername + " died, killed by " + killer);
+                console.log(carriername + " died, killed by " + killer.name);
                 //Network.sendCommand("spectate", game.myID + "");
                 $("#btnFreeSpectator").click();
              }
