@@ -55,66 +55,49 @@
         // if somebody is already carrying flag, spectate him
         if ( chaseflag === 1) {
 
-                // var carriername = $( "#blueflag-name" ).text();
-                var carriername = $( "#blueflag-name" ).justtext();
-                
-                //$( "#scorecontainer:contains('carriername')" ).parent().parent().parent().data('player-id'); 
-                //$( "#scorecontainer:contains('carriername')" ).closest('.item').data('player-id');
-                
-                
-                if (carriername.length > 0){
-                    console.log("blue flag beeing carried by " + carriername);
-                    speccarrier(carriername);
-                    
-                }
-                else {
-                    // nobody is carrying it, flag probably (?) in its base
-                    // BUGGY: free camera to blue base
-                    console.log("back to blue base");
-                    spectag = $( "#spectator-tag" ).justtext();
-                    myname = Players.getMe().name;
-                    freecammode = "Spectating " + myname;
-                    if (spectag === freecammode){
-                        console.log("already in free camera mode");
-                    
-                    } else {
-                        console.log("switching to free camera mode");
-                        $("#btnFreeSpectator").click();
-                        
-                    }
-                    
-                    // $("#btnFreeSpectator").click();
-                    window.setTimeout(function () {
-                        Graphics.setCamera(-9385, -1560);
-                    },2000);
-                    
-                }
-        }
-        else if ( chaseflag === 2) {
+            var carriername = $( "#blueflag-name" ).justtext();
+            var flagcolor = "blue";
+        
+        } else if ( chaseflag === 2) {
 
-                // var carriername = $( "#blueflag-name" ).text();
-                var carriername = $( "#redflag-name" ).justtext();
-                
-                //$( "#scorecontainer:contains('carriername')" ).parent().parent().parent().data('player-id'); 
-                //$( "#scorecontainer:contains('carriername')" ).closest('.item').data('player-id');
-                
-                
-                if (carriername.length > 0){
-                    console.log("red flag beeing carried by " + carriername);
-                    speccarrier(carriername);
-                    
-                }
-                else {
-                    // nobody is carrying it, flag probably (?) in its base
-                    // BUGGY: free camera to red base
-                    console.log("back to red base");
-                    // $("#btnFreeSpectator").click();
-                    window.setTimeout(function () {
-                        Graphics.setCamera(8260, -1055);
-                    },2000);
-                    
-                }
+            var carriername = $( "#redflag-name" ).justtext();
+            var flagcolor = "red";
+            
         }
+        //$( "#scorecontainer:contains('carriername')" ).parent().parent().parent().data('player-id'); 
+        //$( "#scorecontainer:contains('carriername')" ).closest('.item').data('player-id');
+                
+        if (carriername.length > 0){
+            console.log(flagcolor + " flag beeing carried by " + carriername);
+            speccarrier(carriername);
+                    
+        }
+        else {
+            // nobody is carrying it, flag probably (?) in its base
+            // BUGGY: free camera to blue base
+            console.log("camera go to " + flagcolor + " base");
+            spectag = $( "#spectator-tag" ).justtext();
+            myname = Players.getMe().name;
+            freecammode = "Spectating " + myname;
+            
+            if (spectag === freecammode){
+                
+                console.log("already in free camera mode");
+                    
+            } else {
+                
+                console.log("switching to free camera mode");
+                $("#btnFreeSpectator").click();
+                        
+            }
+                    
+            // $("#btnFreeSpectator").click();
+            window.setTimeout(function () {
+                Graphics.setCamera(-9385, -1560);
+            },2000);
+                    
+        }
+        
         
     }
     
