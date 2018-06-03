@@ -127,7 +127,7 @@
     
     // show GUI
     SWAM.on("playerKilled", function(data, dead, killer){
-            console.log(game.myID);
+            console.log(Players.getMe().id);
             if (dead.id == game.myID && killer.id == 0){
                 
                 console.log("spectating");
