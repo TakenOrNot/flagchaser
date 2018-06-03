@@ -124,11 +124,17 @@
     //});
     
     /* EVENTS */
+    //SWAM.on("gameLoaded", function () {
+    console.log("game type " + game.gameType); 
+    
+    SWAM.on("serverMessageReceived", function (data) {
+        console.log("server msg data : " + data); 
+    });
     
     // show GUI
-    SWAM.on("playerDestroyed", function(player){
-        console.log("player destroyed " + Players.getMe().id);
-    });
+    // SWAM.on("playerDestroyed", function(player){
+        // console.log("player destroyed " + Players.getMe().id);
+    // });
     SWAM.on("playerKilled", function(data, dead, killer){
             console.log(Players.getMe().id);
             if (dead.id == game.myID && killer.id == 0){
