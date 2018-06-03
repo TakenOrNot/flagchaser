@@ -126,6 +126,9 @@
     /* EVENTS */
     
     // show GUI
+    SWAM.on("playerDestroyed", function(player){
+        console.log("player destroyed " + Players.getMe().id);
+    }
     SWAM.on("playerKilled", function(data, dead, killer){
             console.log(Players.getMe().id);
             if (dead.id == game.myID && killer.id == 0){
