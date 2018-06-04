@@ -40,8 +40,13 @@
             if (dead.id == carrierid){
                 // the carrier died
                 console.log(carriername + " died, killed by " + killer.name);
+                carriername = '';
+                carrierobj = '';
+                carrierid = '';
+                
                 //Network.sendCommand("spectate", game.myID + "");
                 $("#btnFreeSpectator").click();
+                
              }
         });
         
