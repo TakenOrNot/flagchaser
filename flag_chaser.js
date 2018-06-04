@@ -31,6 +31,8 @@
         console.log("wipe flag chaser");
         // for now, only hide GUI
         $("#flagchasercontainer").css({display: "none"});
+        SWAM.off ( 'keydown', onKeydown );
+        SWAM.off ( 'CTF_FlagEvent', onFlagEvent );
         
         
     }
