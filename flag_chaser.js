@@ -28,6 +28,7 @@
     };
     
     window.chaseflag = 0;
+    window.carrierid = 0;
     
     function speccarrier( carriername ){
        
@@ -37,7 +38,7 @@
         // if the carrier dies, go in free camera mode
         // function carrierKilled(data, dead, killer){
         //function onPlyrKilled(data, dead, killer) {
-            SWAM.one("playerKilled", function (data, dead, killer){
+            SWAM.on("playerKilled", function (data, dead, killer){
                 if (dead.id === carrierid){
                     // the carrier died
                     console.log(carriername + " died, killed by " + killer.name);
