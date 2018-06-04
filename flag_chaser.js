@@ -27,7 +27,7 @@
 
     };
     
-    window.flagchaseteam = 0;
+    window.chaseflag = 0;
     
     function speccarrier( carriername ){
        
@@ -58,18 +58,18 @@
         
         var carriername = '';
         
-        // chaseflag = flagchaseteam;
+        chaseflag = flagchaseteam;
         console.log("chase flag " + flagchaseteam);
         
         // if somebody is already carrying flag, spectate him
-        if ( flagchaseteam === 1) {
+        if ( chaseflag === 1) {
 
             var carriername = $( "#blueflag-name" ).justtext();
             var flagcolor = "blue";
             var basecoordx = -9385;
             var basecoordy = -1560;
         
-        } else if ( flagchaseteam === 2) {
+        } else if ( chaseflag === 2) {
 
             var carriername = $( "#redflag-name" ).justtext();
             var flagcolor = "red";
@@ -180,14 +180,14 @@
             
             console.log("chase flag = " + flagchaseteam);
             
-            if ( flagchaseteam === 1) {
+            if ( chaseflag === 1) {
                 var carriername = '';
                 var carriername = $( "#blueflag-name" ).justtext();
                 var flagcolor = "blue";
                 // var basecoordx = -9385;
                 // var basecoordy = -1560;
 
-            } else if ( flagchaseteam === 2) {
+            } else if ( chaseflag === 2) {
                 var carriername = '';    
                 var carriername = $( "#redflag-name" ).justtext();
                 var flagcolor = "red";
@@ -196,7 +196,7 @@
 
             }
             
-            if ( team === 1 && flagchaseteam === 1) {
+            if ( team === 1 && chaseflag === 1) {
 
                 // var carriername = $( "#blueflag-name" ).justtext();                
                 
@@ -218,7 +218,7 @@
                         
                     },2000);
                 }
-            } else if ( team === 2 && flagchaseteam === 2) {
+            } else if ( team === 2 && chaseflag === 2) {
 
                 // var carriername = $( "#redflag-name" ).justtext();
                 
