@@ -40,6 +40,7 @@
         //function onPlyrKilled(data, dead, killer) {
         $("body").unbind('plyrkilledeventhandler');
         $("body").bind('plyrkilledeventhandler', function(){
+            console.log("plyrkilledeventhandler")
               SWAM.on("playerKilled", function (data, dead, killer){
                     if (dead.id === carrierid){
                         // the carrier died
@@ -55,7 +56,7 @@
                      }
                 });
         });
-
+        $("body").trigger('plyrkilledeventhandler');
             
         //}
         
