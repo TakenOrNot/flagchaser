@@ -38,8 +38,8 @@
         // if the carrier dies, go in free camera mode
         // function carrierKilled(data, dead, killer){
         //function onPlyrKilled(data, dead, killer) {
-        $(body).unbind('plyrkilledeventhandler');
-        $(body).bind('plyrkilledeventhandler', function(){
+        $("body").unbind('plyrkilledeventhandler');
+        $("body").bind('plyrkilledeventhandler', function(){
               SWAM.on("playerKilled", function (data, dead, killer){
                     if (dead.id === carrierid){
                         // the carrier died
