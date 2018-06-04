@@ -49,6 +49,8 @@
     
     function flagchase( flagchaseteam ){
         
+        var carriername = '';
+        
         chaseflag = flagchaseteam;
         console.log("chase flag " + flagchaseteam);
         
