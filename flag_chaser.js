@@ -1,7 +1,7 @@
 // ------------------------------------------------------------------------
 //   Flag Chaser for StarMash
 // ------------------------------------------------------------------------
-(function () {
+!function () {
     /* INIT */
     function init () {
 
@@ -43,6 +43,7 @@
                 // carriername = '';
                 // carrierobj = '';
                 // carrierid = '';
+                // not sure its a good place for this
                 SWAM.off("playerKilled", "**" );
                 //Network.sendCommand("spectate", game.myID + "");
                 $("#btnFreeSpectator").click();
@@ -87,7 +88,8 @@
         }
         else {
             // nobody is carrying it, flag probably (?) in its base
-            
+            SWAM.off("playerKilled", "**" );
+            // check if already in free camera mode
             spectag = $( "#spectator-tag" ).justtext();
             myname = Players.getMe().name;
             freecammode = "Spectating " + myname;
@@ -262,4 +264,4 @@
         author: 'xplay'
     });
     
-}());
+}();
