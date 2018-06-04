@@ -178,7 +178,7 @@
         
         if( $('#btnFreeSpectator').css('display') == 'block' ) {
             
-            console.log("chase flag = " + flagchaseteam);
+            console.log("chase flag = " + chaseflag);
             
             if ( chaseflag === 1) {
                 var carriername = '';
