@@ -160,7 +160,7 @@
                             $("#flagchasercontainer").css({display: "none"});
                         }
                     });
-            });
+            };
           
         }
         
