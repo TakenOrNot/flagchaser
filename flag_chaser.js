@@ -27,7 +27,7 @@
 
     };
     
-    window.chaseflag = 0;
+    window.flagchaseteam = 0;
     
     function speccarrier( carriername ){
        
@@ -37,7 +37,7 @@
         // if the carrier dies, go in free camera mode
         // function carrierKilled(data, dead, killer){
         SWAM.on("playerKilled", function (data, dead, killer){
-            if (dead.id == carrierid){
+            if (dead.id === carrierid){
                 // the carrier died
                 console.log(carriername + " died, killed by " + killer.name);
                 // carriername = '';
@@ -56,18 +56,18 @@
         
         var carriername = '';
         
-        chaseflag = flagchaseteam;
+        // chaseflag = flagchaseteam;
         console.log("chase flag " + flagchaseteam);
         
         // if somebody is already carrying flag, spectate him
-        if ( chaseflag === 1) {
+        if ( flagchaseteam === 1) {
 
             var carriername = $( "#blueflag-name" ).justtext();
             var flagcolor = "blue";
             var basecoordx = -9385;
             var basecoordy = -1560;
         
-        } else if ( chaseflag === 2) {
+        } else if ( flagchaseteam === 2) {
 
             var carriername = $( "#redflag-name" ).justtext();
             var flagcolor = "red";
@@ -176,16 +176,16 @@
         
         if( $('#btnFreeSpectator').css('display') == 'block' ) {
             
-            console.log("chaseflag = " + chaseflag);
+            console.log("chase flag = " + flagchaseteam);
             
-            if ( chaseflag === 1) {
+            if ( flagchaseteam === 1) {
 
                 var carriername = $( "#blueflag-name" ).justtext();
                 var flagcolor = "blue";
                 // var basecoordx = -9385;
                 // var basecoordy = -1560;
 
-            } else if ( chaseflag === 2) {
+            } else if ( flagchaseteam === 2) {
 
                 var carriername = $( "#redflag-name" ).justtext();
                 var flagcolor = "red";
@@ -194,7 +194,7 @@
 
             }
             
-            if ( team === 1 && chaseflag === 1) {
+            if ( team === 1 && flagchaseteam === 1) {
 
                 // var carriername = $( "#blueflag-name" ).justtext();                
                 
@@ -216,7 +216,7 @@
                         
                     },2000);
                 }
-            } else if ( team === 2 && chaseflag === 2) {
+            } else if ( team === 2 && flagchaseteam === 2) {
 
                 // var carriername = $( "#redflag-name" ).justtext();
                 
