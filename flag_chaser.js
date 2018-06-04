@@ -43,12 +43,14 @@
                 // carriername = '';
                 // carrierobj = '';
                 // carrierid = '';
-                
+                SWAM.off("playerKilled", "**" );
                 //Network.sendCommand("spectate", game.myID + "");
                 $("#btnFreeSpectator").click();
                 
              }
         });
+        
+        
         
     }
     
@@ -171,7 +173,7 @@
     
     function onFlagEvent ( event, team, verb ) {
         
-        var carriername = '';
+        
         // first, check if we are already spectating
         
         if( $('#btnFreeSpectator').css('display') == 'block' ) {
@@ -179,14 +181,14 @@
             console.log("chase flag = " + flagchaseteam);
             
             if ( flagchaseteam === 1) {
-
+                var carriername = '';
                 var carriername = $( "#blueflag-name" ).justtext();
                 var flagcolor = "blue";
                 // var basecoordx = -9385;
                 // var basecoordy = -1560;
 
             } else if ( flagchaseteam === 2) {
-
+                var carriername = '';    
                 var carriername = $( "#redflag-name" ).justtext();
                 var flagcolor = "red";
                 // var basecoordx = 8260;
