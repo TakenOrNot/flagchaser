@@ -241,13 +241,13 @@
                     // TODO: check flagevent to know if returned/captured
                     // BUGGY: free camera to red base
                     // note : free camera back to base seems to work on return, but not on capture (??)
-                    console.log("red flag " + verb + ", back to red base");
+                    console.log("red flag " + verb);
                     // TODO: forget about previously carrying player
                     // as there is no flagdrop event, we do this here (better late than never)
                     // TODO: check if theres a flagdrop event
                     // SWAM.off("playerKilled", carrierKilled);
                     
-                    $("#btnFreeSpectator").click();
+                    // $("#btnFreeSpectator").click();
                     window.setTimeout(function () {
                         // Graphics.setCamera(8260, -1055);
                         $("#btnchaseredflag").click();
