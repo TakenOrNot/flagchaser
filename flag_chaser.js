@@ -117,7 +117,7 @@
             // BUGGY: free camera to base
             console.log("camera go to " + flagcolor + " base");
             window.setTimeout(function () {
-                SWAM.setTargetedPLayer(game.myID);
+                SWAM.setTargetedPlayer(game.myID);
                 Graphics.setCamera(basecoordx, basecoordy);
             },2000);
                     
