@@ -40,9 +40,9 @@
             if (dead.id == carrierid){
                 // the carrier died
                 console.log(carriername + " died, killed by " + killer.name);
-                carriername = '';
-                carrierobj = '';
-                carrierid = '';
+                // carriername = '';
+                // carrierobj = '';
+                // carrierid = '';
                 
                 //Network.sendCommand("spectate", game.myID + "");
                 $("#btnFreeSpectator").click();
@@ -85,8 +85,7 @@
         }
         else {
             // nobody is carrying it, flag probably (?) in its base
-            // BUGGY: free camera to base
-            console.log("camera go to " + flagcolor + " base");
+            
             spectag = $( "#spectator-tag" ).justtext();
             myname = Players.getMe().name;
             freecammode = "Spectating " + myname;
@@ -103,6 +102,8 @@
             }
                     
             // $("#btnFreeSpectator").click();
+            // BUGGY: free camera to base
+            console.log("camera go to " + flagcolor + " base");
             window.setTimeout(function () {
                 Graphics.setCamera(basecoordx, basecoordy);
             },2000);
@@ -115,43 +116,6 @@
     /* GUI */
     
     $("body").append("<div id='flagchasercontainer' style='display: none;'><div id='btnchaseblueflag' style='display: block; position: absolute;left: 50%;margin: -75px;bottom: 300px;width: 150px;height: 25px;padding: 5px;background: rgba(46,110,236,0.5);border-radius: 5px;text-align: center;color: #b4b4b4;font-size: 15px;cursor: pointer;'>Chase Blue Flag</div><div id='btnchaseredflag' style='display: block; position: absolute;left: 50%;margin: -75px;bottom: 250px;width: 150px;height: 25px;padding: 5px;background: rgba(188,42,47,0.5);border-radius: 5px;text-align: center;color: #b4b4b4;font-size: 15px;cursor: pointer;'>Chase Red Flag</div></div>");
-    
-    // $(document).ready(function() {
-        // $(document).on("click",".blueflag",function(){
-            // console.log("chase blue flag @GUI");
-            // chaseflag = 1;
-            // flagchase(1);
-        // });
-        // $(document).on("click",".redflag",function(){
-            // console.log("chase red flag @GUI");
-            // chaseflag = 2;
-            // flagchase(2);
-        // });
-    //});
-    
-    /* EVENTS */
-    
-    // SWAM.on("gameLoaded", function () {
-    //     console.log("game type " + game.gameType); 
-    // });
-    // SWAM.on("serverMessageReceived", function (data) {
-        // console.log("server msg data : " + data); 
-    // });
-    
-    // show GUI
-    // SWAM.on("playerDestroyed", function(player){
-        // console.log("player destroyed " + Players.getMe().id);
-    // });
-    // SWAM.on("playerKilled", function(data, dead, killer){
-            // console.log(Players.getMe().id);
-            // if (dead.id == game.myID && killer.id == 0){
-                
-                // console.log("spectating");
-                // $("#flagchasercontainer").css({display: "block"});
-             // }
-    // });
-    
-    // hide GUI
     
     $("#btnchaseblueflag").click(function(){
         flagchase(1);
@@ -207,6 +171,7 @@
     
     function onFlagEvent ( event, team, verb ) {
         
+        var carriername = '';
         // first, check if we are already spectating
         
         if( $('#btnFreeSpectator').css('display') == 'block' ) {
