@@ -205,12 +205,29 @@
         if( $('#btnFreeSpectator').css('display') == 'block' ) {
             
             console.log("chaseflag = " + chaseflag);
+            
+            if ( chaseflag === 1) {
+
+                var carriername = $( "#blueflag-name" ).justtext();
+                var flagcolor = "blue";
+                // var basecoordx = -9385;
+                // var basecoordy = -1560;
+
+            } else if ( chaseflag === 2) {
+
+                var carriername = $( "#redflag-name" ).justtext();
+                var flagcolor = "red";
+                // var basecoordx = 8260;
+                // var basecoordy = -1055;
+
+            }
+            
             if ( team === 1 && chaseflag === 1) {
 
-                var carriername = $( "#blueflag-name" ).justtext();                
+                // var carriername = $( "#blueflag-name" ).justtext();                
                 
                 if (carriername.length > 0){
-                    console.log("blue flag taken by " + carriername);
+                    console.log(flagcolor + " flag taken by " + carriername);
                     speccarrier(carriername);
                     
                 }
@@ -219,8 +236,8 @@
                     // TODO: check flagevent to know if returned/captured
                     // BUGGY: free camera to blue base
                     // note : free camera back to base seems to work on return, but not on capture (??)
-                    console.log("blue flag " + verb + ", back to blue base");
-                    $("#btnFreeSpectator").click();
+                    console.log(flagcolor + " flag " + verb);
+                    // $("#btnFreeSpectator").click();
                     window.setTimeout(function () {
                         // Graphics.setCamera(-9385, -1560);
                         $("#btnchaseblueflag").click();
@@ -229,10 +246,10 @@
                 }
             } else if ( team === 2 && chaseflag === 2) {
 
-                var carriername = $( "#redflag-name" ).justtext();
+                // var carriername = $( "#redflag-name" ).justtext();
                 
                 if (carriername.length > 0){
-                    console.log("red flag taken by " + carriername);
+                    console.log(flagcolor + " flag taken by " + carriername);
                     speccarrier(carriername);
                     
                 }
@@ -241,7 +258,7 @@
                     // TODO: check flagevent to know if returned/captured
                     // BUGGY: free camera to red base
                     // note : free camera back to base seems to work on return, but not on capture (??)
-                    console.log("red flag " + verb);
+                    console.log(flagcolor + " flag " + verb);
                     // TODO: forget about previously carrying player
                     // as there is no flagdrop event, we do this here (better late than never)
                     // TODO: check if theres a flagdrop event
