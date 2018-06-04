@@ -6,9 +6,11 @@
     function init () {
         console.log('init flag chaser');
         // if this is not CTF, dont do anything more
-        if($('#gamespecific div:nth-child(1)').hasClass('blueflag')){
-            initEvents ();
-        }
+        SWAM.on ( 'gamePrep', function initifctf(){
+            if($('#gamespecific div:nth-child(1)').hasClass('blueflag')){
+                initEvents ();
+            }
+        });
         
     }
 
