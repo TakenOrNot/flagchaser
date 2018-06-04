@@ -19,10 +19,21 @@
         SWAM.on ( 'keydown', onKeydown );
         SWAM.on ( 'CTF_FlagEvent', onFlagEvent );
         // SWAM.on( 'playerKilled', onPlyrKilled )
+        // trigger
+        SWAM.on ( 'gameWipe', onwipeflagchaser)
     }
 
     SWAM.on ( 'gameLoaded', init );
     
+    function onwipeflagchaser (){
+        
+        // TODO: unbind fc
+        console.log("wipe flag chaser");
+        // for now, only hide GUI
+        $("#flagchasercontainer").css({display: "none"});
+        
+        
+    }
     
     
     jQuery.fn.justtext = function() {
