@@ -9,7 +9,7 @@
         SWAM.on ( 'gamePrep', function initifctf(){
             var checkctf = '';
             var checkctf = $('#gamespecific div:nth-child(1)').hasClass('blueflag');
-            if(checkctf){
+            if( $('#gamespecific').css('display') == 'block' && checkctf ){
                 console.log('CTF ! init flag chaser events');
                 initEvents ();
             }
