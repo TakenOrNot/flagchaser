@@ -12,7 +12,7 @@
     function initEvents () {
         SWAM.on ( 'keydown', onKeydown );
         SWAM.on ( 'CTF_FlagEvent', onFlagEvent );
-        // SWAM.on( 'playerKilled', carrierKilled )
+        SWAM.on( 'playerKilled', onPlyrKilled )
     }
 
     SWAM.on ( 'gameLoaded', init );
@@ -36,21 +36,22 @@
         Network.sendCommand("spectate", carrierid + "");
         // if the carrier dies, go in free camera mode
         // function carrierKilled(data, dead, killer){
-        SWAM.on("playerKilled", function (data, dead, killer){
-            if (dead.id === carrierid){
-                // the carrier died
-                console.log(carriername + " died, killed by " + killer.name);
-                // carriername = '';
-                // carrierobj = '';
-                // carrierid = '';
-                // not sure its a good place for this
-                SWAM.off("playerKilled", "**" );
-                //Network.sendCommand("spectate", game.myID + "");
-                $("#btnFreeSpectator").click();
-                
-             }
-        });
-        
+        function onPlyrKilled(data, dead, killer) {
+            // SWAM.on("playerKilled", function (data, dead, killer){
+                if (dead.id === carrierid){
+                    // the carrier died
+                    console.log(carriername + " died, killed by " + killer.name);
+                    // carriername = '';
+                    // carrierobj = '';
+                    // carrierid = '';
+                    // not sure its a good place for this
+                    //SWAM.off("playerKilled", "**" );
+                    //Network.sendCommand("spectate", game.myID + "");
+                    $("#btnFreeSpectator").click();
+
+                 }
+            });
+        }
         
         
     }
