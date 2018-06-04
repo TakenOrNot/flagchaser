@@ -12,7 +12,7 @@
     function initEvents () {
         SWAM.on ( 'keydown', onKeydown );
         SWAM.on ( 'CTF_FlagEvent', onFlagEvent );
-        SWAM.on( 'playerKilled', onPlyrKilled )
+        // SWAM.on( 'playerKilled', onPlyrKilled )
     }
 
     SWAM.on ( 'gameLoaded', init );
@@ -36,8 +36,8 @@
         Network.sendCommand("spectate", carrierid + "");
         // if the carrier dies, go in free camera mode
         // function carrierKilled(data, dead, killer){
-        function onPlyrKilled(data, dead, killer) {
-            // SWAM.on("playerKilled", function (data, dead, killer){
+        //function onPlyrKilled(data, dead, killer) {
+            SWAM.one("playerKilled", function (data, dead, killer){
                 if (dead.id === carrierid){
                     // the carrier died
                     console.log(carriername + " died, killed by " + killer.name);
@@ -50,8 +50,8 @@
                     $("#btnFreeSpectator").click();
 
                  }
-            //});
-        }
+            });
+        //}
         
         
     }
