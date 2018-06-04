@@ -179,7 +179,7 @@
         // first, check if we are already spectating
         
         if( $('#btnFreeSpectator').css('display') == 'block' ) {
-            
+            console.log("flag event = " + team + " " + verb);
             console.log("chase flag = " + chaseflag);
             
             if ( chaseflag === 1) {
