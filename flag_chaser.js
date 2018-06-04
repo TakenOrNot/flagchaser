@@ -7,7 +7,9 @@
         console.log('init flag chaser');
         // if this is not CTF, dont do anything more
         SWAM.on ( 'gamePrep', function initifctf(){
-            if($('#gamespecific div:nth-child(1)').hasClass('blueflag')){
+            var checkctf = '';
+            var checkctf = $('#gamespecific div:nth-child(1)').hasClass('blueflag');
+            if(checkctf){
                 console.log('CTF ! init flag chaser events');
                 initEvents ();
             }
@@ -22,7 +24,11 @@
         // trigger
         SWAM.on ( 'gameWipe', onwipeflagchaser)
     }
-
+    
+    $( document ).ready(function() {
+        console.log( "document ready!" );
+        
+    });
     SWAM.on ( 'gameLoaded', init );
     
     function onwipeflagchaser (){
