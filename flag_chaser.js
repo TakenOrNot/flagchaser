@@ -8,6 +8,7 @@
         // if this is not CTF, dont do anything more
         SWAM.on ( 'gamePrep', function initifctf(){
             if($('#gamespecific div:nth-child(1)').hasClass('blueflag')){
+                console.log('CTF ! init flag chaser events');
                 initEvents ();
             }
         });
