@@ -6,7 +6,7 @@
     function init () {
         console.log('init flag chaser');
         // if this is not CTF, dont do anything more
-        if( $('#gamespecific div').hasClass('blueflag')){
+        if($('#gamespecific div:nth-child(1)').hasClass('blueflag')){
             initEvents ();
         }
         
