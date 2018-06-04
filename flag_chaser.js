@@ -150,17 +150,21 @@
             
             
             // game.spectatingID is not reliable, as it is null at first when spectating, until we spectate another player
-            if( $('#btnFreeSpectator').css('display') == 'block' ) {
-                console.log("v key pressed, spectating player id " + game.spectatingID + ", show Flag Chaser GUI"); 
-                $("#flagchasercontainer").css({display: "block"});
-                    SWAM.on("playerRespawned", function(data){
-                        respawnedid = data['id'];
-                        if (respawnedid == Players.getMe().id){
-                            console.log("player respawned, hide Flag Chaser GUI");
-                            $("#flagchasercontainer").css({display: "none"});
-                        }
-                    });
-            };
+            window.setTimeout(function () {
+                 if( $('#btnFreeSpectator').css('display') == 'block' ) {
+                    console.log("v key pressed, spectating player id " + game.spectatingID + ", show Flag Chaser GUI"); 
+                    $("#flagchasercontainer").css({display: "block"});
+                        SWAM.on("playerRespawned", function(data){
+                            respawnedid = data['id'];
+                            if (respawnedid == Players.getMe().id){
+                                console.log("player respawned, hide Flag Chaser GUI");
+                                $("#flagchasercontainer").css({display: "none"});
+                            }
+                        });
+                };       
+                        
+            },2000);
+            
           
         }
         
