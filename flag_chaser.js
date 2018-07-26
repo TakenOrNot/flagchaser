@@ -56,7 +56,8 @@
     function speccarrier( carriername ){
        
         carrierobj = Players.getByName(carriername); 
-        carrierid = carrierobj['id']; 
+        carrierid = carrierobj['id'];
+        carrierteam = carrierobj['team'];
         Network.sendCommand("spectate", carrierid + "");
         // if the carrier dies, go in free camera mode
         // function carrierKilled(data, dead, killer){
@@ -75,7 +76,20 @@
                         //SWAM.off("playerKilled", "**" );
                         //Network.sendCommand("spectate", game.myID + "");
                         $("#btnFreeSpectator").click();
-
+                        
+                        
+                        window.setTimeout(function () {
+                            // TODO : check if another carrier picked it up, if yes do nothing (spec him), else autochase
+                            if (autochase === 1){
+                                if (carrierteam = 1){
+                                    flagchase(2);
+                                }
+                                else {
+                                    flagchase(1);
+                                }
+                            }
+                        },2000);    
+                        
                      }
                 });
         });
