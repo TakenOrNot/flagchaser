@@ -51,7 +51,7 @@
     
     window.chaseflag = 0;
     window.carrierid = 0;
-    window.autoswitchchase = 0;
+    window.autochase = 0;
     
     function speccarrier( carriername ){
        
@@ -123,6 +123,17 @@
             var basecoordy = -1055;
             
         }
+        else if ( chaseflag === 'auto'){
+            // TODO autochase
+            var carriername = $( "#redflag-name" ).justtext();
+            if (carriername.length > 0){
+                flagchase(2);
+            }
+            else {
+                flagchase(1);
+            }
+        }
+        
         //$( "#scorecontainer:contains('carriername')" ).parent().parent().parent().data('player-id'); 
         //$( "#scorecontainer:contains('carriername')" ).closest('.item').data('player-id');
                 
@@ -180,6 +191,7 @@
     $("#btnchaseauto").click(function(){
         //flagchase(2);
         autochase = 1;
+        flagchase('auto');
         $( this ).css({background: "rgba(255,255,255,0.9)"});
         $("#btnchaseblueflag").css({background: "rgba(46,110,236,0.5)"});
         $("#btnchaseredflag").css({background: "rgba(188,42,47,0.5)"});
