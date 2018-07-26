@@ -269,15 +269,18 @@
 
             }
             else if (autochase === 1){
+                // if autochase and nothing hapening with red flag, chase blue flag
                 var carriername = $( "#redflag-name" ).justtext();
                 if (carriername.length > 0){
+                    console.log("autochase flag = 2");
                     flagchase(2);
                 }
                 else {
+                    console.log("autochase flag = 1");
                     flagchase(1);
                 }
             }
-            // TODO if autochase and nothing hapening with blue flag, chase red flag
+            
             
             if ( team === 1 && chaseflag === 1) {
 
