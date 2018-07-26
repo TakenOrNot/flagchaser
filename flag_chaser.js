@@ -80,6 +80,7 @@
                         
                         window.setTimeout(function () {
                             // TODO : check if another carrier picked it up, if yes do nothing (spec him), else autochase
+                            // + try to stay on last chased flag in autochase if there's nothing particular to spec concerning the other flag
                             if (autochase === 1){
                                 if (carrierteam = 1){
                                     flagchase(2);
@@ -267,6 +268,16 @@
                 // var basecoordy = -1055;
 
             }
+            else if (autochase === 1){
+                var carriername = $( "#redflag-name" ).justtext();
+                if (carriername.length > 0){
+                    flagchase(2);
+                }
+                else {
+                    flagchase(1);
+                }
+            }
+            // TODO if autochase and nothing hapening with blue flag, chase red flag
             
             if ( team === 1 && chaseflag === 1) {
 
