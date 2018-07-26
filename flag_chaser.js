@@ -25,21 +25,16 @@
         SWAM.on ( 'gameWipe', onwipeflagchaser)
     }
     
-    $( document ).ready(function() {
-        console.log( "document ready!" );
-        
-    });
     SWAM.on ( 'gameLoaded', init );
     
     function onwipeflagchaser (){
         
         // TODO: unbind fc
         console.log("wipe flag chaser");
-        // for now, only hide GUI
+        // hide GUI
         $("#flagchasercontainer").css({display: "none"});
         SWAM.off ( 'keydown', onKeydown );
         SWAM.off ( 'CTF_FlagEvent', onFlagEvent );
-        
         
     }
     
@@ -56,6 +51,7 @@
     
     window.chaseflag = 0;
     window.carrierid = 0;
+    window.autoswitchchase = 0;
     
     function speccarrier( carriername ){
        
@@ -155,7 +151,7 @@
     
     /* GUI */
     
-    $("body").append("<div id='flagchasercontainer' style='display: none;'><div id='btnchaseblueflag' style='display: block; position: absolute;left: 50%;margin: -75px;bottom: 300px;width: 150px;height: 25px;padding: 5px;background: rgba(46,110,236,0.5);border-radius: 5px;text-align: center;color: #b4b4b4;font-size: 15px;cursor: pointer;'>Chase Blue Flag</div><div id='btnchaseredflag' style='display: block; position: absolute;left: 50%;margin: -75px;bottom: 250px;width: 150px;height: 25px;padding: 5px;background: rgba(188,42,47,0.5);border-radius: 5px;text-align: center;color: #b4b4b4;font-size: 15px;cursor: pointer;'>Chase Red Flag</div></div>");
+    $("body").append("<div id='flagchasercontainer' style='display: none;'><div id='btnchaseauto' style='display: block; position: absolute;left: 50%;margin: -75px;bottom: 300px;width: 150px;height: 25px;padding: 5px;background: rgba(0,0,0,0.5);border-radius: 5px;text-align: center;color: #b4b4b4;font-size: 15px;cursor: pointer;'>Chase Auto</div><div id='btnchaseblueflag' style='display: block; position: absolute;left: 50%;margin: -75px;bottom: 300px;width: 150px;height: 25px;padding: 5px;background: rgba(46,110,236,0.5);border-radius: 5px;text-align: center;color: #b4b4b4;font-size: 15px;cursor: pointer;'>Chase Blue Flag</div><div id='btnchaseredflag' style='display: block; position: absolute;left: 50%;margin: -75px;bottom: 250px;width: 150px;height: 25px;padding: 5px;background: rgba(188,42,47,0.5);border-radius: 5px;text-align: center;color: #b4b4b4;font-size: 15px;cursor: pointer;'>Chase Red Flag</div></div>");
     
     $("#btnchaseblueflag").click(function(){
         flagchase(1);
@@ -167,7 +163,13 @@
         $( this ).css({background: "rgba(188,42,47,0.9)"});
         $("#btnchaseblueflag").css({background: "rgba(46,110,236,0.5)"});
     });
-    
+    $("#btnchaseauto").click(function(){
+        //flagchase(2);
+        autochase = 1;
+        $( this ).css({background: "rgba(255,255,255,0.9)"});
+        $("#btnchaseblueflag").css({background: "rgba(46,110,236,0.5)"});
+        $("#btnchaseredflag").css({background: "rgba(188,42,47,0.5)"});
+    });
     
     function onKeydown ( event ) {
         
@@ -258,8 +260,16 @@
                     // $("#btnFreeSpectator").click();
                     window.setTimeout(function () {
                         // Graphics.setCamera(-9385, -1560);
-                        $("#btnchaseblueflag").click();
-                        
+                        if (autochase === 1){
+                            // $("#btnchaseredflag").click();
+                            // TODO call autochase function
+                            // for now, just try to chase the other flag
+                            flagchase(2);
+                        }
+                        else {
+                            $("#btnchaseblueflag").click();
+                            
+                        }
                     },2000);
                 }
             } else if ( team === 2 && chaseflag === 2) {
@@ -285,7 +295,16 @@
                     // $("#btnFreeSpectator").click();
                     window.setTimeout(function () {
                         // Graphics.setCamera(8260, -1055);
-                        $("#btnchaseredflag").click();
+                        if (autochase === 1){
+                            // $("#btnchaseblueflag").click();
+                            // TODO call autochase function
+                            // for now, just try to chase the other flag
+                            flagchase(1);
+                        }
+                        else {
+                            $("#btnchaseredflag").click();
+                            
+                        }
                         
                     },2000);
                 }    
