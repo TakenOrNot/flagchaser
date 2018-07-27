@@ -7,6 +7,7 @@
         console.log('init flag chaser');
         // if this is not CTF, dont do anything more
         SWAM.on ( 'gamePrep', function initifctf(){
+            //if (game.gameType == SWAM.GAME_TYPE.CTF) {
             var checkctf = '';
             var checkctf = $('#gamespecific div:nth-child(1)').hasClass('blueflag');
             if( $('#gamespecific').css('display') == 'block' && checkctf ){
@@ -80,10 +81,12 @@
                         
                         window.setTimeout(function () {
                             // TODO : check if another carrier picked it up, if yes do nothing (spec him), else autochase
-                            // + try to stay on last chased flag in autochase if there's nothing particular to spec concerning the other flag
+                            
                             if (autochase === 1){
                                 if (carrierteam = 1){
+                                    // TODO try to stay on last chased flag in autochase if there's nothing particular to spec concerning the other flag
                                     flagchase(2);
+                                    // TODO is nothing happening, spec team top player SWAM.getLeaders
                                 }
                                 else {
                                     flagchase(1);
@@ -126,13 +129,7 @@
         }
         else if ( chaseflag === 'auto'){
             // TODO autochase
-            var carriername = $( "#redflag-name" ).justtext();
-            if (carriername.length > 0){
-                flagchase(2);
-            }
-            else {
-                flagchase(1);
-            }
+            bounceloop(flagchaseteam);
         }
         
         //$( "#scorecontainer:contains('carriername')" ).parent().parent().parent().data('player-id'); 
@@ -167,11 +164,48 @@
             console.log("camera go to " + flagcolor + " base");
             window.setTimeout(function () {
                 // SWAM.setTargetedPlayer(game.myID);
-                Graphics.setCamera(basecoordx, basecoordy);
+                // Graphics.setCamera(basecoordx, basecoordy);
+                bounceloop(chaseflag,basecoordx, basecoordy);
             },2000);
                     
         }
         
+        
+    }
+    
+    // what to do when spectated action is over
+    function bounceloop(flagchaseteam,basecoordx, basecoordy){
+        chaseflag = flagchaseteam;
+        console.log("bounceloop " + flagchaseteam);
+        var redcarriername = '';
+        var bluecarriername = '';
+        
+        if ( autochase === 1 ){
+            // if we are in chase auto mode, try to find a new action to spectate
+            if ( chaseflag === 1) {
+                var redcarriername = $( "#redflag-name" ).justtext();
+            }
+            
+            if (redcarriername.length > 0){
+                flagchase(2); 
+                
+            }
+            else {
+                var bluecarriername = $( "#blueflag-name" ).justtext();
+                if (bluecarriername.length > 0){
+                    flagchase(1);
+                
+                } else {
+                    // nothing happening, back to base
+                    Graphics.setCamera(basecoordx, basecoordy);
+                }
+            }
+            
+        }
+        else {
+            // if we are not in chase auto mode, go back to base
+            Graphics.setCamera(basecoordx, basecoordy);
+        }
         
     }
     
