@@ -195,8 +195,14 @@
                 if (bluecarriername.length > 0){
                     flagchase(1);
                 
-                } else {
-                    // nothing happening, back to base
+                } else if (basecoordx){
+                    // nothing happening, back to base of previously chased flag
+                    Graphics.setCamera(basecoordx, basecoordy);
+                }
+                else {
+                    // if basecoords are not defined, we werent chasing a flag yet, lets go to blue base by default
+                    var basecoordx = -9385;
+                    var basecoordy = -1560;
                     Graphics.setCamera(basecoordx, basecoordy);
                 }
             }
@@ -304,15 +310,20 @@
             }
             else if (autochase === 1){
                 // if autochase and nothing hapening with red flag, chase blue flag
-                var carriername = $( "#redflag-name" ).justtext();
-                if (carriername.length > 0){
+                //if (team === 1){
+                    var carriername = '';
+                    var carriername = $( "#redflag-name" ).justtext();
+                    if (carriername.length > 0){
                     console.log("autochase flag = 2");
                     flagchase(2);
-                }
-                else {
-                    console.log("autochase flag = 1");
-                    flagchase(1);
-                }
+                    }
+                    else {
+                        console.log("autochase flag = 1");
+                        flagchase(1);
+                    }
+                // }
+                
+                
             }
             
             
