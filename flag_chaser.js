@@ -183,9 +183,9 @@
         
         if ( autochase === 1 ){
             // if we are in chase auto mode, try to find a new action to spectate
-            if ( chaseflag === 1) {
-                var redcarriername = $( "#redflag-name" ).justtext();
-            }
+            // if ( chaseflag === 1) {
+            var redcarriername = $( "#redflag-name" ).justtext();
+            // }
             
             if (redcarriername.length > 0){
                 flagchase(2); 
@@ -315,8 +315,8 @@
                     var carriername = '';
                     var carriername = $( "#redflag-name" ).justtext();
                     if (carriername.length > 0){
-                    console.log("autochase flag = 2");
-                    flagchase(2);
+                        console.log("autochase flag = 2");
+                        flagchase(2);
                     }
                     else {
                         console.log("autochase flag = 1");
