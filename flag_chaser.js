@@ -55,51 +55,52 @@
     window.autochase = 0;
     
     function speccarrier( carriername ){
-       
-        carrierobj = Players.getByName(carriername); 
-        carrierid = carrierobj['id'];
-        carrierteam = carrierobj['team'];
-        Network.sendCommand("spectate", carrierid + "");
-        // if the carrier dies, go in free camera mode
-        // function carrierKilled(data, dead, killer){
-        //function onPlyrKilled(data, dead, killer) {
-        $("body").unbind('plyrkilledeventhandler');
-        $("body").bind('plyrkilledeventhandler', function(){
-            console.log("plyrkilledeventhandler")
-              SWAM.on("playerKilled", function (data, dead, killer){
-                    if (dead.id === carrierid){
-                        // the carrier died
-                        console.log(carriername + " died, killed by " + killer.name);
-                        // carriername = '';
-                        // carrierobj = '';
-                        // carrierid = '';
-                        // not sure its a good place for this
-                        //SWAM.off("playerKilled", "**" );
-                        //Network.sendCommand("spectate", game.myID + "");
-                        $("#btnFreeSpectator").click();
-                        
-                        
-                        window.setTimeout(function () {
-                            // TODO : check if another carrier picked it up, if yes do nothing (spec him), else autochase
-                            
-                            if (autochase === 1){
-                                if (carrierteam = 1){
-                                    // TODO try to stay on last chased flag in autochase if there's nothing particular to spec concerning the other flag
-                                    flagchase(2);
-                                    // TODO is nothing happening, spec team top player SWAM.getLeaders
-                                }
-                                else {
-                                    flagchase(1);
-                                }
-                            }
-                        },2000);    
-                        
-                     }
-                });
-        });
-        $("body").trigger('plyrkilledeventhandler');
+        if( $('#btnFreeSpectator').css('display') == 'block' ) {
             
-        //}
+            carrierobj = Players.getByName(carriername); 
+            carrierid = carrierobj['id'];
+            carrierteam = carrierobj['team'];
+            Network.sendCommand("spectate", carrierid + "");
+            // if the carrier dies, go in free camera mode
+            // function carrierKilled(data, dead, killer){
+            //function onPlyrKilled(data, dead, killer) {
+            $("body").unbind('plyrkilledeventhandler');
+            $("body").bind('plyrkilledeventhandler', function(){
+                console.log("plyrkilledeventhandler")
+                  SWAM.on("playerKilled", function (data, dead, killer){
+                        if (dead.id === carrierid){
+                            // the carrier died
+                            console.log(carriername + " died, killed by " + killer.name);
+                            // carriername = '';
+                            // carrierobj = '';
+                            // carrierid = '';
+                            // not sure its a good place for this
+                            //SWAM.off("playerKilled", "**" );
+                            //Network.sendCommand("spectate", game.myID + "");
+                            $("#btnFreeSpectator").click();
+
+
+                            window.setTimeout(function () {
+                                // TODO : check if another carrier picked it up, if yes do nothing (spec him), else autochase
+
+                                if (autochase === 1){
+                                    if (carrierteam = 1){
+                                        // TODO try to stay on last chased flag in autochase if there's nothing particular to spec concerning the other flag
+                                        flagchase(2);
+                                        // TODO is nothing happening, spec team top player SWAM.getLeaders
+                                    }
+                                    else {
+                                        flagchase(1);
+                                    }
+                                }
+                            },2000);    
+
+                         }
+                    });
+            });
+            $("body").trigger('plyrkilledeventhandler');
+            
+        }
         
         
     }
