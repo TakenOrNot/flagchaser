@@ -61,10 +61,32 @@
             carrierid = carrierobj['id'];
             carrierteam = carrierobj['team'];
             Network.sendCommand("spectate", carrierid + "");
+            $("body").unbind('plyrkilledeventhandler');
+            
+            // TODO check if still beeing carried (no drop event...)
+            var checkcarryinterval = setInterval(checkcarry, 2000);
+            if (carrierteam = 1){
+                var carriername = $( "#blueflag-name" ).justtext();
+                if (!carriername){
+                    console.log("noone carrying blue flag");
+                    $("#btnFreeSpectator").click();
+                    $("body").unbind('plyrkilledeventhandler');
+                }
+            }
+            else {
+                var carriername = $( "#redflag-name" ).justtext();
+                if (!carriername){
+                    $("#btnFreeSpectator").click();
+                    console.log("noone carrying red flag");
+                    $("body").unbind('plyrkilledeventhandler');
+                }
+            }
+            
+            
             // if the carrier dies, go in free camera mode
             // function carrierKilled(data, dead, killer){
             //function onPlyrKilled(data, dead, killer) {
-            $("body").unbind('plyrkilledeventhandler');
+            
             $("body").bind('plyrkilledeventhandler', function(){
                 console.log("plyrkilledeventhandler")
                   SWAM.on("playerKilled", function (data, dead, killer){
