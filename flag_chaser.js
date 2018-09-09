@@ -67,19 +67,19 @@
             var checkcarryinterval = setInterval(checkcarry, 2000);
             function checkcarry(){
                 if (carrierteam = 1){
-                    var carriername = $( "#blueflag-name" ).justtext();
+                    var carriername = $( "#redflag-name" ).justtext();
                     if (!carriername){
-                        console.log("noone carrying blue flag");
+                        console.log("noone carrying red flag");
                         $("#btnFreeSpectator").click();
                         $("body").unbind('plyrkilledeventhandler');
                         clearInterval(checkcarryinterval);
                     }
                 }
                 else {
-                    var carriername = $( "#redflag-name" ).justtext();
+                    var carriername = $( "#blueflag-name" ).justtext();
                     if (!carriername){
                         $("#btnFreeSpectator").click();
-                        console.log("noone carrying red flag");
+                        console.log("noone carrying blue flag");
                         $("body").unbind('plyrkilledeventhandler');
                         clearInterval(checkcarryinterval);
                     }
