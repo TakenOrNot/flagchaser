@@ -72,7 +72,7 @@
                         console.log("noone carrying blue flag");
                         $("#btnFreeSpectator").click();
                         $("body").unbind('plyrkilledeventhandler');
-                        clearInterval(checkcarry);
+                        clearInterval(checkcarryinterval);
                     }
                 }
                 else {
@@ -81,7 +81,7 @@
                         $("#btnFreeSpectator").click();
                         console.log("noone carrying red flag");
                         $("body").unbind('plyrkilledeventhandler');
-                        clearInterval(checkcarry);
+                        clearInterval(checkcarryinterval);
                     }
                 }
             }
