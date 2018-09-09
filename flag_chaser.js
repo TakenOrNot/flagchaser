@@ -65,23 +65,26 @@
             
             // TODO check if still beeing carried (no drop event...)
             var checkcarryinterval = setInterval(checkcarry, 2000);
-            if (carrierteam = 1){
-                var carriername = $( "#blueflag-name" ).justtext();
-                if (!carriername){
-                    console.log("noone carrying blue flag");
-                    $("#btnFreeSpectator").click();
-                    $("body").unbind('plyrkilledeventhandler');
+            function checkcarry(){
+                if (carrierteam = 1){
+                    var carriername = $( "#blueflag-name" ).justtext();
+                    if (!carriername){
+                        console.log("noone carrying blue flag");
+                        $("#btnFreeSpectator").click();
+                        $("body").unbind('plyrkilledeventhandler');
+                        clearInterval(checkcarry);
+                    }
+                }
+                else {
+                    var carriername = $( "#redflag-name" ).justtext();
+                    if (!carriername){
+                        $("#btnFreeSpectator").click();
+                        console.log("noone carrying red flag");
+                        $("body").unbind('plyrkilledeventhandler');
+                        clearInterval(checkcarry);
+                    }
                 }
             }
-            else {
-                var carriername = $( "#redflag-name" ).justtext();
-                if (!carriername){
-                    $("#btnFreeSpectator").click();
-                    console.log("noone carrying red flag");
-                    $("body").unbind('plyrkilledeventhandler');
-                }
-            }
-            
             
             // if the carrier dies, go in free camera mode
             // function carrierKilled(data, dead, killer){
