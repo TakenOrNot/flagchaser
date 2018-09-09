@@ -281,6 +281,18 @@
                             if (respawnedid == Players.getMe().id){
                                 console.log("player respawned, hide Flag Chaser GUI");
                                 $("#flagchasercontainer").css({display: "none"});
+                                 
+                                checkspecdelay = 10000;
+                                checkspec(checkspecdelay)
+                                function checkspec(checkspecdelay){
+                                    window.setTimeout(function () {
+                                                if( $('#btnFreeSpectator').css('display') == 'block' ) {
+                                                    console.log("show Flag Chaser GUI");
+                                                    $("#flagchasercontainer").css({display: "block"});
+                                                }
+                                            },checkspecdelay); 
+                                }
+
                             }
                         });
                 };       
