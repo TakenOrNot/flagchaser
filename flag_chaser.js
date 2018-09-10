@@ -57,6 +57,10 @@
     function speccarrier( carriername ){
         if( $('#btnFreeSpectator').css('display') == 'block' ) {
             
+            carrierobj = '';
+            carrierid = '';
+            carrierteam = '';
+            
             carrierobj = Players.getByName(carriername); 
             carrierid = carrierobj['id'];
             carrierteam = carrierobj['team'];
@@ -66,7 +70,7 @@
             // TODO check if still beeing carried (no drop event...)
             var checkcarryinterval = setInterval(checkcarry, 2000);
             function checkcarry(){
-                if (carrierteam = 1){
+                if (carrierteam == 1){
                     var carriername = $( "#redflag-name" ).justtext();
                     if (!carriername){
                         console.log("noone carrying red flag");
@@ -109,7 +113,7 @@
                                 // TODO : check if another carrier picked it up, if yes do nothing (spec him), else autochase
 
                                 if (autochase === 1){
-                                    if (carrierteam = 1){
+                                    if (carrierteam == 1){
                                         // TODO try to stay on last chased flag in autochase if there's nothing particular to spec concerning the other flag
                                         flagchase(2);
                                         // TODO is nothing happening, spec team top player SWAM.getLeaders
